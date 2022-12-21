@@ -5,7 +5,7 @@ cur = []
 sizeDict = {}
 for l in lines:                                 # build absolute path to every directory
     if "$" in l:
-        if "cd /" in l:                         # got to home
+        if "cd /" in l:                         # go to home
             cur = ["/"]
         elif "cd .." in l:                      # move out
             cur.pop(-1)
@@ -22,15 +22,16 @@ for l in lines:                                 # build absolute path to every d
                 else:
                     sizeDict[path] = size
 endSum = 0
+MAX_SIZE = 100000
 for k,v in sizeDict.items():
-    if v <= 100000:
+    if v <= MAX_SIZE:
         endSum += v
 print("Part 1:", endSum)
 
 #--- Part 2
-usableDiscSpace = 40000000
+USEABLE_DISC_SPACE = 40000000
 occupiedDiscSpace = sizeDict["/"]
-toBeFreed = occupiedDiscSpace - usableDiscSpace
+toBeFreed = occupiedDiscSpace - USEABLE_DISC_SPACE
 size = 0
 errMin = 1e9
 for k,v in sizeDict.items():
