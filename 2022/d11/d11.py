@@ -8,9 +8,7 @@ class Monkey:
         s.true = -1
         s.false = -1
         s.inspections = 0
-
-# ---Part 1:
-#--- Part 2:
+        
 for part in [1, 2]:
     monkeys = []
     for l in lines:
